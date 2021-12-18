@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/home.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/c8f11d2ecf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="static/css/style.css" />
+    
+    <title>Hamdard-Ide</title>
+    <style>
+
+      .footer {
+        {% comment %} position: fixed; {% endcomment %}
+        
+        width: 100;
+        {% comment %} height:100%; {% endcomment %}
+        {% comment %} background-color: red; {% endcomment %}
+        color: white;
+        text-align: center;
+      }
+      .vertical-menu {
+        width: 5%;
+        float:right;
+        position:fixed;
+        margin-top:25vh;
+
+      }
+      
+      .vertical-menu a {
+        background-color: #eee;
+        color: black;
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+      }
+      
+      .vertical-menu a:hover {
+        background-color: #ccc;
+      }
+      
+      .vertical-menu a.active {
+        background-color: black;
+        color: white;
+      }
+      {% comment %} .na-link a.active {
+        background-color: red;
+        color: white;
+      } {% endcomment %}
+      </style>
+
+
+  </head>
+  <body style="background-color:#282424" >
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#1b1b1b;">
+      <a style="color:white;" class="navbar-brand" href="#"><center> <img style="height:70px;" src="static\temp\Jamia_Hamdard_Logo.svg" alt="hamdard logo">  <b>Hamdard's</b> CodeMap</center></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav na-link">
+          <a class="nav-item nav-link active text-light" href=''>Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link text-light" href="#">Features</a>
+          <a class="nav-item nav-link text-light" href="#">Pricing</a>
+          <a class="nav-item nav-link disabled text-light" href="#">Disabled</a>
+        </div>
+      </div>
+    </nav>
+    <div class="vertical-menu">
+      <a href="https://github.com/sagarr70/" class="active "><i class="fab fa-github fa-2x"></i></a>
+      <a style="background-color:#1064c4;" href="https://www.linkedin.com/in/sagar-aggarwal-17a69a199/"><i class="fab fa-linkedin fa-2x"></i></a>
+      <a style="background-color:green; font-size:10px; "href="#"><b> REPORT</b></a>
+    </div>
+
+    <div class="mx-5">
+      <div class="row">
+        <div class="col-7 mx-3 my-5">
+
+            <div class="form-group">
+              <label style="color:white;"  for="language">Language:</label>
+              <select onchange="changeLanguage()" name="language" id="language">
+              <option value="py">Python</option>
+              <option value="cpp">C++</option>
+              <option value="c">C</option>
+              <option value="java">Java</option>
+              </select>
+              <label style="color:white;"  for="language">Theme:</label>
+              <select onchange="changetheme()" name="theme" id="theme">
+              <option value="twilight">twilight</option>  
+              <option value="monokai">monokai</option>
+              <option value="solarized_dark">solarized_dark</option>
+              <option value="solarized_light">solarized_light</option>
+              </select>
+              <button onclick="download()">Download</button>
+
+            </div>
+                <div class="editor" id="editor"></div>
+                <div class="form-group">
+                  <button id="run-code" class="btn btn-outline-success float-right px-3 mt-2" type="submit">Run Your Code </button>
+                </div>
+            </div>
+              <div class="col-3 mt-5">
+                <div class="row mb-4">
+                  <label style="color:white;" for="comment"><h5>Input</h5></label>
+                  <textarea id="input_part" class="form-control" rows="7" name="input_area" style="border:1px solid grey;">{{input}}</textarea>
+                </div>
+                <div class="row">
+                  <label style="color:white;" for="comment"><h5>Output</h5></label>
+                  <textarea id="output-area" class="form-control" rows="7" name="output_area" style="border:1px solid grey;" disabled>{{output}}</textarea>
+                </div>
+              </div>
+            
+            
+
+        </div>
+      </div>
+    </div>
+<footer>
+    <div class="footer">
+      <p>Made With Love by Sagar Aggarwal</p>
+    </div>
+  </footer>  
+  <script src="static/config.js"></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="static/js/lib/ace.js"></script>
+  <script src="static/js/lib/theme-monokai.js"></script>
+  {% comment %} <script src="static/js/ide.js"></script> {% endcomment %}
+
+  </body>
+</html>
