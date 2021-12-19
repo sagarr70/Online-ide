@@ -1,6 +1,6 @@
 let language = document.getElementById('language');
 Storedlang = localStorage.getItem('language')
-
+var languageOption = document.getElementById("language");
 if(Storedlang != undefined){
     language.value =Storedlang;
 }
@@ -15,7 +15,7 @@ function changetheme()
 {
     let theme=document.getElementById('theme').value
     console.log(theme)
-    
+
     if(theme == 'twilight')editor.setTheme("ace/theme/twilight");
     else if(theme == 'monokai')editor.setTheme("ace/theme/monokai");
     else if(theme == 'solarized_dark')editor.setTheme("ace/theme/solarized_dark");
@@ -25,11 +25,15 @@ function changeLanguage() {
 
     let lang = document.getElementById('language').value
     console.log(language)
+    if(lang == 'cpp'){editor.session.setMode("ace/mode/c_cpp");
+    editor.setValue(" #include<iostream>\n using namespace std; \n int main()\n { \n \n cout<<\"hello world \"; \n return 0; \n}");}
+    else if(lang == 'py'){editor.session.setMode("ace/mode/python");
+    editor.setValue("print('hello world')");}
+    else if(lang == 'c'){editor.session.setMode("ace/mode/c_cpp");
+   editor.setValue(" #include <stdio.h>\n int main()\n { \n \n printf(\"Hello World!\");  \n}");}
+    else if(lang == 'java'){editor.session.setMode("ace/mode/java");
+    editor.setValue(" public class Main { \n public static void main(String args[]) { \n System.out.println(\"hello world \"); \n } \n }");}
 
-    if(lang == 'cpp' || lang == 'cpp')editor.session.setMode("ace/mode/c_cpp");
-    else if(lang == 'py')editor.session.setMode("ace/mode/python");
-    else if(lang == 'c')editor.session.setMode("ace/mode/c_cpp");
-    else if(lang == 'java')editor.session.setMode("ace/mode/java");
 }
 
 function sendData(lang,code,input) {

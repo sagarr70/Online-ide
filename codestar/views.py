@@ -10,7 +10,6 @@ def greetings(request):
     print("hello")
     res = render(request,'codestar/home.html')
     return res
-
 @csrf.csrf_exempt
 def runcode(request):
     print("runninggggggggggggggggggg")
@@ -77,4 +76,7 @@ def runcode(request):
             print(output)
             # res = render(request,'codestar/home.html',{"code":code_part,"input":y,"output":output})
             res = HttpResponse(output)
+    return res
+def report(request):
+    res =render(request,'codestar/report.html')
     return res

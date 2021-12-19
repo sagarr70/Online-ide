@@ -1,8 +1,8 @@
-
-#include <iostream>
-using namespace std;
-int main() {
-    int x,y,z;
-    cin>>x>>y>>z;
-    cout<<x<<y<<z;
-}
+ #include<iostream>
+ using namespace std; 
+ int main()
+ { 
+ 
+ cout<<"hello world "; 
+ return 0; 
+}

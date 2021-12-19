@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/c8f11d2ecf.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="static/css/style.css" />
+    {% comment %} <link rel="stylesheet" href="static/css/style.css" /> {% endcomment %}
     <link rel="icon" type="image/x-icon" href="static/ide.png">
     
     <title>CodeMap</title>
@@ -65,71 +65,29 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav na-link">
-          <a class="nav-item nav-link active text-light" href=''>REFRESH <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link active text-light "href="/report">REPORT</a>
+          <a class="nav-item nav-link active text-light" href='/home'>IDE <span class="sr-only">(current)</span></a>
         </div>
       </div>
     </nav>
     <div class="vertical-menu">
       <a href="https://github.com/sagarr70/" class="active "><i class="fab fa-github fa-2x"></i></a>
       <a style="background-color:#1064c4;" href="https://www.linkedin.com/in/sagar-aggarwal-17a69a199/"><i class="fab fa-linkedin fa-2x"></i></a>
-      <a style="background-color:green; font-size:10px; "href="/report"><b> REPORT</b></a>
+      <a style="background-color:green; font-size:10px; "href="/home"><b> IDE</b></a>
     </div>
-
-    <div class="mx-5">
-      <div class="row">
-        <div class="col-7 mx-3 my-5">
-
-            <div class="form-group">
-              <label style="color:white;"  for="language">Language:</label>
-              <select onchange="changeLanguage()" name="language" id="language">
-              <option value="py">Python</option>
-              <option value="cpp">C++</option>
-              <option value="c">C</option>
-              <option value="java">Java</option>
-              </select>
-              <label style="color:white;"  for="language">Theme:</label>
-              <select onchange="changetheme()" name="theme" id="theme">
-              <option value="twilight">twilight</option>  
-              <option value="monokai">monokai</option>
-              <option value="solarized_dark">solarized_dark</option>
-              <option value="solarized_light">solarized_light</option>
-              </select>
-              <button onclick="download()">Download</button>
-
-            </div>
-                <div class="editor" id="editor"> &lt;!--  Choose a language and a color theme to get started! -->
-                </div>
-                <div class="form-group">
-                  <button id="run-code" class="btn btn-outline-success float-right px-3 mt-2" type="submit"><i class="fas fa-play"></i> RUN </button>
-                </div>
-            </div>
-              <div class="col-3 mt-5">
-                <div class="row mb-4">
-                  <label style="color:white;" for="comment" ><h5>Input :</h5></label>
-                  <textarea id="input_part" placeholder="Enter Input" class="form-control" rows="7" name="input_area" style="border:1px solid grey;">{{input}}</textarea>
-                </div>
-                <div class="row">
-                  <label style="color:white;" for="comment"><h5>Output :</h5></label>
-                  <textarea id="output-area" class="form-control" rows="7" name="output_area" style="border:1px solid grey;" disabled>{{output}}</textarea>
-                </div>
-              </div>
-            
-            
-
-        </div>
-      </div>
-    </div>
+   <div>
+    <embed src="static/REPORT.pdf" type="application/pdf" width="100%" height="600px" />
+   </div>
+  
 <footer>
     <div class="footer">
       <p>Made With <i  style="color:red;" class="fas fa-heart"></i> by Sagar Aggarwal</p>
     </div>
   </footer>  
-  <script src="static/config.js"></script>  
+  {% comment %} <script src="static/config.js"></script>  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="static/js/lib/ace.js"></script>
-  <script src="static/js/lib/theme-monokai.js"></script>
-  {% comment %} <script src="static/edi.js"></script> {% endcomment %}
+  <script src="static/js/lib/theme-monokai.js"></script> {% endcomment %}
+  {% comment %} <script src="static/js/ide.js"></script> {% endcomment %}
 
   </body>
 </html>
