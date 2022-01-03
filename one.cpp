@@ -3,6 +3,6 @@
  int main()
  { 
  
- cout<<"hello world "; 
+ cout<<"hello JAVA "; 
  return 0; 
 }
